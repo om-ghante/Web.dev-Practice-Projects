@@ -67,7 +67,8 @@ button:focus-visible {
   }
 }
 
-.intro-main-div {
+.intro-main-div,
+.auth-main-div {
   border: 1px solid gray;
   padding: 180px;
   border-radius: 20px;
