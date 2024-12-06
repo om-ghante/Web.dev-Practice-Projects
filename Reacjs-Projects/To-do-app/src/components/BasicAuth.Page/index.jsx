@@ -8,9 +8,12 @@ const Auth = () => {
 
   const navigate = useNavigate();
 
+  const user = "admin";
+  const pass = "Pass@123";
+
   const HandleSubmit = () => {
 
-    if( userName == "admin" && userPassword == "Pass@123" ) {
+    if( (userName == user) && (userPassword == pass) ) {
       navigate('/dashboard');
     } else {
       alert("Username & Password Dosen't Match...!!");
@@ -21,7 +24,8 @@ const Auth = () => {
     <>
         <div className='auth-main-div'>
             <h1>To-Do App</h1>
-            <h4>Hello,Again!</h4>
+
+            <h3>Hello,Again!</h3>
 
             <div className='auth-div'>
 
@@ -41,10 +45,12 @@ const Auth = () => {
                 onChange={(e) => setUserPassword(e.target.value)}
               />
               
-              <button onClick={HandleSubmit}>
+              <button onClick={HandleSubmit} onKeyDown={HandleSubmit}>
                 Login
               </button>
             </div>
+
+            <p>Note : <br /> Username : {user} <br /> Password : {pass} </p>
         </div>
     </>
   )
