@@ -100,3 +100,49 @@ button:focus-visible {
   height: 50px;
   margin: 10px;
 }
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  column-gap: 10px;
+}
+
+.todo-leftcontainer {
+  display: table-row;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  height: 800px;
+  width: 3000px;
+}
+
+.todo-leftcontainer textarea {
+  display: block;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 200px; 
+  line-height: 1.5; 
+  font-size: 16px;
+  padding: 10px;
+  resize: none;
+  width: 500px;
+  margin-bottom: 10px;
+}
+
+.todo-leftcontainer button {
+  display: block;
+  padding: 10px;
+  width: 520px;
+  margin-bottom: 10px;
+  background-color: yellow;
+}
+
+.todo-rightcontainer {
+  display: block;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  height: 800px;
+  width: 7000px;
+}

@@ -14,7 +14,7 @@ const Auth = () => {
   const HandleSubmit = () => {
 
     if( (userName == user) && (userPassword == pass) ) {
-      navigate('/dashboard');
+      navigate('/default_app');
     } else {
       alert("Username & Password Dosen't Match...!!");
     }
