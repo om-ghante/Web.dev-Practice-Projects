@@ -1,41 +1,72 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import ToDoItem from '../ToDoItem';
+import ToDoCompletedItem from '../ToDoCompletedItem';
 
 const ToDoApp = () => {
-  const [ Task , setTask ] = useState('');
+  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState("");
 
-  const HandleAdd = () => {
-    
-  }
+  const addTask = () => {
+    if (task.trim()) {
+      setTasks([...tasks, { id: Date.now(), text: task, completed: false }]);
+      setTask(""); 
+    }
+  };
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
 
   return (
     <>
-      <div className='todo-container'>
-          <div className='todo-leftcontainer'>
-            <h2>Add To Do...</h2>
-            <textarea 
-              type="text"
-              placeholder="Enter Your Task"
-              name="Task"
-              value={Task}
-              onChange={(e) => setTask(e.target.value)} 
-            />
-            <button onClick={HandleAdd}>
-              Add To Do
-            </button>
-            
-            <div className='text-intro-div'>
-                <p>&copy; Om Ghante 2024 | Copyrights Not Reserved</p>
-                <p>Made With &hearts; by Om Ghante</p>
-                <p>Code for this you can find <a href="https://github.com/om-ghante/Web.dev-Practice-Projects/tree/main/Reacjs-Projects/To-do-app" target='_blank' title="It Will Redirect to Github"> here</a></p>
-            </div>
+      <div className="todo-container">
+        <div className="todo-leftcontainer">
+          <h2>Add To Do...</h2>
+          <textarea
+            type="text"
+            placeholder="Enter Your Task"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <button onClick={addTask}>Add To Do</button>
+        </div>
+
+        <div className="todo-rightcontainer">
+          <div className="todo-list-container">
+            <h3>To Do List</h3>
+            {tasks.filter((task) => !task.completed).map((task) => (
+              <ToDoItem
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                toggleComplete={toggleComplete}
+              />
+            ))}
           </div>
-          <div className='todo-rightcontainer'>
-            <h1>Om Ghante</h1>
+
+          <div className="todo-completed-list-container">
+            <h3>Completed</h3>
+            {tasks.filter((task) => task.completed).map((task) => (
+              <ToDoCompletedItem
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                toggleComplete={toggleComplete}
+              />
+            ))}
           </div>
+        </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default ToDoApp
+export default ToDoApp;

@@ -113,8 +113,6 @@ button:focus-visible {
 
 .todo-leftcontainer {
   display: table-row;
-  border: 1px solid black;
-  border-radius: 5px;
   padding: 20px;
   height: 800px;
   width: 3000px;
@@ -142,10 +140,44 @@ button:focus-visible {
 }
 
 .todo-rightcontainer {
-  display: block;
-  border: 1px solid black;
-  border-radius: 5px;
+  display: table-row;
   padding: 20px;
   height: 800px;
   width: 7000px;
+}
+
+.todo-list-container {
+  display: block;
+  height: 400px;
+  overflow: scroll;
+  text-align: start;
+}
+
+.todo-completed-list-container {
+  display: block;
+  height: 400px;
+  overflow: scroll;
+  text-align: start;
+}
+
+.todoitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.todoitem input {
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.todoitem button {
+  background-color: red;
+  color: white;
+}
+
+.todoitem span {
+  margin-left: 10px;
 }

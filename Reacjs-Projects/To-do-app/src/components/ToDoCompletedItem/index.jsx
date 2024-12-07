@@ -1,26 +1,26 @@
 import React from 'react';
 
-const ToDoItem = ({ task, deleteTask, toggleComplete }) => {
+const ToDoCompletedItem = ({ task, deleteTask, toggleComplete }) => {
   return (
     <>
-      <div className='todoitem'> 
+      <div className='todoitem'>
         <input
           type="checkbox"
           checked={task.completed} 
           onChange={() => toggleComplete(task.id)} 
         />
-
-        <span style={{ 
-          flex: 1 
+        <span 
+          style={{ 
+            flex: 1, 
+            textDecoration: 'line-through' 
           }}
         >
           {task.text}
         </span>
-
         <button onClick={() => deleteTask(task.id)}>Delete</button>
       </div>
     </>
   );
 };
 
-export default ToDoItem;
+export default ToDoCompletedItem;
